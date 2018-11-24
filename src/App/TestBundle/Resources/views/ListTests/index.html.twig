@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <h1>List of tests for passing</h1>
+    <div class="list-group">
+    {% for test in pagination %}
+        {#<a href="{{ path('_passPoll', { 'id': poll.id }) }}" class="list-group-item">#}
+        <a href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">{{ test.name }}</h4>
+            <p class="list-group-item-text">{{ test.description }}</p>
+        </a>
+    {% endfor %}
+    </div>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
