@@ -11,3 +11,4 @@
 /bin/
 /composer.phar
 .idea/
+/reload_db.bat
