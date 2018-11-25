@@ -1,6 +1,14 @@
 body{
     padding-top: 60px;
 }
-.navbar{
-    height: 50px;
+
+.navbar-fixed-top .navbar-text{
+    padding-left: 1em;
+}
+
+@media (min-width: 1200px) {
+    .container,
+    .container-fluid {
+        width: 800px;
+    }
 }

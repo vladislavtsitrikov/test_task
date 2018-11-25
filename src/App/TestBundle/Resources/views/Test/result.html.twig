@@ -1,0 +1,16 @@
+{% set active_menu_item = 'test' %}
+{% extends '::base.html.twig' %}
+{% block title %}Test results{% endblock %}
+{% block body %}
+    <h1>Test results</h1>
+    <h3>{{ test.name }}</h3>
+    {% if test.description %}
+        <p>{{ test.description }}</p>
+        <hr>
+    {% endif %}
+    <pre>
+    {% for question in test.questions %}
+        {{ question.text }}
+    {% endfor %}
+    </pre>
+{% endblock %}
