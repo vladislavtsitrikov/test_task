@@ -1,0 +1,33 @@
+{% set active_menu_item = 'results' %}
+{% extends '::base.html.twig' %}
+{% block title %}Results page{% endblock %}
+{% block body %}
+    <h1>Results</h1>
+    {% if pagination|length %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Test name</th>
+                    <th>Correct</th>
+                    <th>Total</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for attempt in pagination %}
+            <tr>
+                <td>{{ attempt.testname }}</td>
+                <td>{{ attempt.correct }}</td>
+                <td>{{ attempt.total }}</td>
+                <td>{{ attempt.datetimestamp|date("d.m.Y H:i") }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+    <p>You have not passed any test</p>
+    {% endif %}
+{% endblock %}

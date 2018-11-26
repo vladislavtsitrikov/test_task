@@ -2,6 +2,9 @@
 
 namespace App\TestBundle\Repository;
 
+use App\TestBundle\Entity\Question;
+use App\TestBundle\TestBundle;
+
 /**
  * QuestionRepository
  *
@@ -10,4 +13,27 @@ namespace App\TestBundle\Repository;
  */
 class QuestionRepository extends \Doctrine\ORM\EntityRepository
 {
+//    /**
+//     * Get array with correct answers (answers ids and answer text, if type is text)
+//     * @param Question $question
+//     * @return array
+//     */
+//    public function getCorrectAnswersByQuestionId(Question $question){
+//        $questionEntity = $this->find($question);
+//        $answers = $questionEntity->getAnswers();
+//
+//        $output = array();
+//
+//        foreach ($answers as $item) {
+//            if ($item->getCorrect()) {
+//                if ($question->getType() == TestBundle::$questionType['text']) {
+//                    $output[$question->getId()] = $item->getText();
+//                } else {
+//                    $output[$question->getId()][] = $item->getId();
+//                }
+//            }
+//        }
+//
+//        return $output;
+//    }
 }

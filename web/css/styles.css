@@ -1,9 +1,28 @@
 body{
     padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .navbar-fixed-top .navbar-text{
     padding-left: 1em;
+}
+
+.answer{
+    padding: 5px;
+    border-radius: 5px;
+}
+.answer-correct{
+    background: #98dc9e;
+}
+
+.answer-checked{
+    background: #ad1f2c;
+    color: #fff;
+}
+
+.answer-correct.answer-checked{
+    background: #407841;
+    color: #fff;
 }
 
 @media (min-width: 1200px) {

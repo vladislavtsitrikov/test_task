@@ -6,11 +6,34 @@
     <h3>{{ test.name }}</h3>
     {% if test.description %}
         <p>{{ test.description }}</p>
-        <hr>
     {% endif %}
-    <pre>
+    {% if test.image %}
+        <img src="{{ test.image }}" class="img-responsive" />
+    {% endif %}
+    <hr>
     {% for question in test.questions %}
-        {{ question.text }}
+        <div class="form-group">
+            <h4>{{ question.text }}</h4>
+            {% if question.type == types.text %}
+                {% set answer = question.answers|first %}
+                <textarea class="form-control
+                    {% if answer.id in result.correct %} answer-correct{% endif %}
+                    {% if answer.id in result.selected %} answer-checked{% endif %}
+                " name="question[{{ question.id }}][0]">{% for text in result.texts %}{% if text.answer == answer.id %}{{ text.text }}{% endif %}{% endfor %}</textarea>
+            {% else %}
+                {% for answer in question.answers %}
+                    {% set type = (question.type == types.single) ? 'radio' : 'checkbox' %}
+                    <div class="{{ type }} answer
+                        {% if answer.id in result.correct %} answer-correct{% endif %}
+                        {% if answer.id in result.selected %} answer-checked{% endif %}
+                    ">
+                        <label>
+                            <input type="{{ type }}" name="question[{{ question.id }}][]" value="{{ answer.id }}"{% if answer.id in result.selected %} checked{% endif %}>
+                            {{ answer.text }}
+                        </label>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
     {% endfor %}
-    </pre>
 {% endblock %}

@@ -44,6 +44,11 @@ class Test
     private $created;
 
     /**
+     * @ORM\Column(type="string", length=120)
+     */
+    protected $image;
+
+    /**
      * @ORM\OneToMany(targetEntity="Question", mappedBy="test")
      */
     private $questions;
@@ -139,6 +144,29 @@ class Test
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Test
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**

@@ -1,6 +1,8 @@
 {% set active_menu_item = 'login' %}
 {% extends "@FOSUser/layout.html.twig" %}
 
+{% block title %}{{ 'layout.login'|trans({}, 'FOSUserBundle') }}{% endblock %}
+
 {% block fos_user_content %}
     <h1>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h1>
     {{ include('@FOSUser/Security/login_content.html.twig') }}

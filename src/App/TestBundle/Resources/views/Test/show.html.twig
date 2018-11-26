@@ -1,12 +1,17 @@
 {% set active_menu_item = 'test' %}
 {% extends '::base.html.twig' %}
+{% block title %}{{ test.name }}{% endblock %}
 {% block body %}
     <h1>{{ test.name }}</h1>
     {% if test.description %}
         <p>{{ test.description }}</p>
-        <hr>
     {% endif %}
-    <form role="form" action="{{ path('_resultTest',{'id': test.id}) }}" method="post">
+    {% if test.image %}
+        <img src="{{ test.image }}" class="img-responsive" />
+    {% endif %}
+    <hr>
+    <form role="form" action="{{ path('_resultTest', {'id': test.id}) }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('attempt_csrf') }}" />
     {% for question in test.questions %}
         <div class="form-group">
             <h4>{{ question.text }}</h4>
