@@ -56,11 +56,18 @@ class Test
 
     public function __construct()
     {
-
         $this->questions = new ArrayCollection();
 
         $this->setCreated(new \DateTime());
+    }
 
+    /**
+     * Get class object as string
+     * @return string
+     */
+    public function __toString()
+    {
+        return ($this->name) ? $this->name: '';
     }
 
 

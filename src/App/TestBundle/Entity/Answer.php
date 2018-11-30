@@ -42,6 +42,16 @@ class Answer
     protected $question;
 
     /**
+     * Get class object as string
+     * @return string
+     */
+    public function __toString()
+    {
+        return ($this->text) ? $this->text: '';
+    }
+
+
+    /**
      * Get id
      *
      * @return int
@@ -118,7 +128,7 @@ class Answer
      *
      * @return Question
      */
-    public function getQuest()
+    public function getQuestion()
     {
         return $this->question;
     }

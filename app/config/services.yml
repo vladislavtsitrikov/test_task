@@ -7,3 +7,29 @@ services:
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    app.test.admin.test:
+        class: App\TestBundle\Admin\TestAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: test, label: "Tests" }
+        arguments:
+            - ~
+            - App\TestBundle\Entity\Test
+            - 'TestBundle:TestAdmin'
+
+    app.test.admin.question:
+        class: App\TestBundle\Admin\QuestionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: test, label: "Questions" }
+        arguments:
+            - ~
+            - App\TestBundle\Entity\Question
+            - 'TestBundle:QuestionAdmin'
+
+    app.test.admin.answer:
+        class: App\TestBundle\Admin\AnswerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: test, label: "Answers" }
+        arguments:
+            - ~
+            - App\TestBundle\Entity\Answer
+            - 'TestBundle:AnswerAdmin'

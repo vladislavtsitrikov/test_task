@@ -48,12 +48,19 @@ class Question
     protected $answers;
 
 
-    function __construct() {
-
+    function __construct()
+    {
         $this->answers = new ArrayCollection();
-
     }
 
+    /**
+     * Get class object as string
+     * @return string
+     */
+    public function __toString()
+    {
+        return ($this->text) ? $this->text . ' :: ' . $this->test->getName(): '';
+    }
 
     /**
      * Get id
